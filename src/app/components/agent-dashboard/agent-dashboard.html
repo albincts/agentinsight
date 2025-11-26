@@ -1,0 +1,85 @@
+<div class="dashboard-container">
+  <app-sidebar></app-sidebar>
+
+  <main class="dashboard-content">
+    <div class="dashboard-header">
+      <h1>Agent Dashboard</h1>
+      <div class="profile-icon">👤</div>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="stats-grid">
+      <div *ngFor="let stat of stats" class="stat-card">
+        <div class="stat-icon">{{ stat.icon }}</div>
+        <div class="stat-info">
+          <p class="stat-label">{{ stat.label }}</p>
+          <p class="stat-value">{{ stat.value }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-grid">
+      <!-- Recent Sales -->
+      <section class="card">
+        <div class="card-header">
+          <h2>Recent Sales</h2>
+          <a href="#" class="view-all">View All ></a>
+        </div>
+        <table class="sales-table">
+          <thead>
+            <tr>
+              <th>Policy</th>
+              <th>Date</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sale of recentSales">
+              <td>{{ sale.policy }}</td>
+              <td>{{ sale.date }}</td>
+              <td>{{ sale.amount }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Leaderboard -->
+      <section class="card">
+        <h2>Leaderboard</h2>
+        <div class="leaderboard-list">
+          <div *ngFor="let agent of leaderboard" class="leaderboard-item">
+            <span class="rank">{{ agent.rank }}</span>
+            <span class="agent-icon">👤</span>
+            <span class="agent-name">{{ agent.name }}</span>
+            <span class="score">{{ agent.score }}</span>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Sales Trend & Quick Links Row -->
+    <div class="dashboard-grid">
+      <!-- Sales Trend -->
+      <section class="card trend-card">
+        <h2>Sales Trend</h2>
+        <div class="chart-placeholder">
+          <svg viewBox="0 0 400 150" class="trend-chart">
+            <path d="M 20 130 Q 60 120 100 100 T 200 80 T 300 90 T 380 40" 
+                  stroke="#0052cc" stroke-width="3" fill="none"/>
+          </svg>
+        </div>
+      </section>
+
+      <!-- Quick Links -->
+      <section class="card">
+        <h2>Quick Links</h2>
+        <div class="quick-links">
+          <button *ngFor="let link of quickLinks" class="quick-link-btn">
+            <span class="link-icon">{{ link.icon }}</span>
+            <span>{{ link.label }}</span>
+          </button>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
