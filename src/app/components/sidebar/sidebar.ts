@@ -12,6 +12,10 @@ import { Router } from '@angular/router';
   styleUrl: './sidebar.css'
 })
 export class Sidebar {
+
+  agent_title = 'AgentInsight';
+  admin_title = 'AdminInsight';
+
   menuItems = [
     { icon: '📊', label: 'Dashboard', route: '/agent/dashboard' },
     { icon: '💼', label: 'Sales', route: '/agent/sales' },
