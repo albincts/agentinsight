@@ -1,0 +1,19 @@
+<div class="admin-dashboard">
+  <aside class="sidebar">
+    <h2>Admin Panel</h2>
+    <nav>
+      <ul>
+        <li><a routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a></li>
+        <li><a routerLink="/admin/agent-management" routerLinkActive="active">Agent Management</a></li>
+        <li><a routerLink="/admin/sales" routerLinkActive="active">Sales</a></li>
+        <li><a routerLink="/admin/reports" routerLinkActive="active">Reports</a></li>
+        <li><a routerLink="/admin/performance-analytics" routerLinkActive="active">Performance</a></li>
+      </ul>
+    </nav>
+    <button class="logout-button"><a style="text-decoration: none; color: aliceblue;" [routerLink]="'login'">Logout</a></button>
+  </aside>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
