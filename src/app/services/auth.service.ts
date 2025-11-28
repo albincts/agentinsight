@@ -1,5 +1,6 @@
 import { Injectable, signal, inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
+import { Agent } from '../models/agent.model';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { DOCUMENT } from '@angular/common';
 export class AuthService {
   private doc = inject(DOCUMENT);
   isAuthenticated = signal(false);
-  currentUser = signal<any>(null);
+  currentUser = signal<Agent | null>(null);
 
   constructor() {
     this.checkAuth();
@@ -19,11 +20,18 @@ export class AuthService {
 
   login(email: string, password: string): boolean {
     if (email === 'agent@gmail.com' && password === 'Password@1') {
+      const agent: Agent = {
+        agentid: 'A-001',
+        name: 'Accomua',
+        email,
+        phone: '555-0123',
+        role: 'agent'
+      };
       this.isAuthenticated.set(true);
-      this.currentUser.set({ email, role: 'agent' });
+      this.currentUser.set(agent);
       
       if (this.isLocalStorageAvailable()) {
-        localStorage.setItem('user', JSON.stringify({ email, role: 'agent' }));
+        localStorage.setItem('user', JSON.stringify(agent));
       }
       return true;
     }
@@ -43,7 +51,7 @@ export class AuthService {
     if (this.isLocalStorageAvailable()) {
       const user = localStorage.getItem('user');
       if (user) {
-        this.currentUser.set(JSON.parse(user));
+        this.currentUser.set(JSON.parse(user) as Agent);
         this.isAuthenticated.set(true);
         return true;
       }

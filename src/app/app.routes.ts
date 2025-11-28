@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { Login } from './components/login/login';
 import { AgentDashboard } from './components/agent-dashboard/agent-dashboard';
+import { AgentSales } from './components/agent/agent-sales/agent-sales';
 import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
@@ -10,7 +11,8 @@ export const routes: Routes = [
     path: 'agent',
     canActivate: [AuthGuard],
     children: [
-      { path: 'dashboard', component: AgentDashboard }
+      { path: 'dashboard', component: AgentDashboard },
+      { path: 'sales', component: AgentSales } // added sales route
     ]
   },
   { path: '**', redirectTo: '/login' }
