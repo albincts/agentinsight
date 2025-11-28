@@ -1,0 +1,56 @@
+<div class="performance-container" display="flex">
+  <h2>Performance Dashboard</h2>
+
+  <!-- Filter Form -->
+  <form [formGroup]="filterForm" (ngSubmit)="applyFilters()" class="filter-form">
+    <label>Start Date:</label>
+    <input type="date" formControlName="startDate">
+
+    <label>End Date:</label>
+    <input type="date" formControlName="endDate">
+
+    <label>Region:</label>
+    <select formControlName="region">
+      <option value="">All</option>
+      <option value="South">South</option>
+      <option value="North">North</option>
+      <option value="East">East</option>
+      <option value="West">West</option>
+    </select>
+
+    <label>Agent ID:</label>
+    <input type="text" formControlName="agentId">
+
+    <button type="submit">Apply Filters</button>
+  </form>
+
+  <!-- Summary Section -->
+  <div class="summary-cards">
+    <div class="card">Total Sales: ₹{{ performanceData?.totalSales }}</div>
+    <div class="card">Incentives Paid: ₹{{ performanceData?.incentivesPaid }}</div>
+    <div class="card">Top Agents: {{ performanceData?.topAgents?.join(', ') }}</div>
+  </div>
+
+  <!-- Performance Table -->
+  <h3>Performance Table</h3>
+  <table class="performance-table">
+    <thead>
+      <tr>
+        <th>Agent ID</th>
+        <th>Region</th>
+        <th>Sales</th>
+        <th>Incentives</th>
+        <th>Rank</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let agent of performanceData?.agents">
+        <td>{{ agent.id }}</td>
+        <td>{{ agent.region }}</td>
+        <td>₹{{ agent.sales }}</td>
+        <td>₹{{ agent.incentives }}</td>
+        <td>{{ agent.rank }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,189 @@
+/* Container */
+.performance-container{
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 12px 8px 40px 8px;
+}
+
+/* Header and controls */
+.performance-container h2{
+  font-size: 28px;
+  margin: 0 0 8px 0;
+  color: #0f2a3a;
+}
+
+.filter-form{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  background: transparent;
+  padding: 6px 0 12px 0;
+}
+
+.filter-form label{
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.filter-form input[type="date"],
+.filter-form input[type="text"],
+.filter-form select{
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #e3e9ef;
+  background: #fff;
+  font-size: 13px;
+  outline: none;
+  min-width: 150px;
+  box-shadow: none;
+}
+
+/* Make Apply Filters button more visible and simple */
+.filter-form button{
+  background: #0b66ff; /* bright accent */
+  color: #ffffff;
+  padding: 9px 14px;
+  border: 1px solid rgba(5,45,120,0.12);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 6px 14px rgba(11,102,255,0.12);
+  transition: transform .08s, box-shadow .12s, opacity .12s;
+}
+
+/* hover/focus */
+.filter-form button:hover,
+.filter-form button:focus{
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(11,102,255,0.14);
+  opacity: 0.98;
+}
+
+/* disabled state (if ever used) */
+.filter-form button[disabled]{
+  background: #cfe3ff;
+  color: #6b7f98;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Summary cards */
+.summary-cards{
+  display:flex;
+  gap:16px;
+  align-items: stretch;
+  margin-top: 6px;
+}
+
+.summary-cards .card{
+  background: linear-gradient(180deg, #fff, #fbfdff);
+  border-radius: 12px;
+  padding: 18px;
+  min-width: 180px;
+  box-shadow: 0 6px 18px rgba(20,45,70,0.06);
+  font-weight: 700;
+  color: #0f2a3a;
+}
+
+/* Table card */
+.performance-table{
+  width: 100%;
+  border-collapse: separate; /* use separate so wrapper border is retained */
+  border-spacing: 0;
+  background: transparent;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* wrapper for visual card */
+.performance-table-wrapper{
+  background: var(--card-bg);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 10px 30px rgba(19,42,62,0.06);
+  overflow: hidden;
+
+  /* added visible outline */
+  border: 1px solid rgba(15,42,58,0.06);
+}
+
+/* subtle separators between rows */
+.performance-table thead th{
+  text-align: left;
+  padding: 16px 12px;
+  font-weight: 700;
+  color: #2a4756;
+  background: transparent;
+  border-bottom: 1px solid rgba(15,42,58,0.06);
+  font-size: 14px;
+}
+
+/* body rows */
+.performance-table tbody td{
+  padding: 16px 12px;
+  color: #26404d;
+  border-bottom: 1px solid rgba(15,42,58,0.04);
+  font-size: 14px;
+}
+
+/* last row: remove extra border for clean look */
+.performance-table tbody tr:last-child td{
+  border-bottom: none;
+}
+
+/* currency column */
+.performance-table tbody td:first-child{
+  font-weight: 600;
+}
+
+/* status badges */
+.badge{
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #234;
+}
+
+.badge.completed{
+  background: rgba(39,197,154,0.12);
+  color: #1f8f68;
+}
+
+.badge.pending{
+  background: rgba(255,179,64,0.12);
+  color: #c97800;
+}
+
+.badge.cancelled{
+  background: rgba(237,97,97,0.10);
+  color: #c33a3a;
+}
+
+/* responsive tweaks */
+@media (max-width: 880px){
+  .summary-cards{
+    flex-direction: column;
+  }
+  .performance-table thead{
+    display: none;
+  }
+  .performance-table tbody td{
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .performance-table tbody tr{
+    margin-bottom: 12px;
+    display: block;
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 6px 18px rgba(20,45,70,0.04);
+  }
+}

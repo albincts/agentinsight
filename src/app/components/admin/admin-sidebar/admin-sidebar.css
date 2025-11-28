@@ -10,7 +10,7 @@ body {
 
 .sidebar {
   width: 240px;
-  background-color: #1e3a5f; /* Deep blue */
+  background-color: #1b509f; /* Deep blue */
   color: #ffffff;
   padding: 30px 20px;
   display: flex;
@@ -44,13 +44,13 @@ body {
 
 .sidebar nav a:hover,
 .sidebar nav a.active {
-  background-color: #1abc9c; /* Teal highlight */
-  color: #ffffff;
+  background-color: #d2d2d2; /* Teal highlight */
+  color: #000000;
 }
 
 .logout-button {
   margin-top: auto;
-  background-color: #e74c3c;
+  background-color: #b0abab;
   color: #ffffff;
   border: none;
   padding: 10px 15px;
